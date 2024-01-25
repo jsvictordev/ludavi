@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+}
+
+model localidades {
+  IdLocalidad Int @id @default(autoincrement())
+  Localidad String? @db.VarChar(80)
+  IdMunicipio Int?
+  Municipio String? @db.VarChar(80)
+  IdCiudad Int?
+  Ciudad String?  @db.VarChar(80)
+  IdEstado Int?
+  Estado String? @db.VarChar(35)
+  IdTipoAsentamiento Int?
+  TipoAsentamiento String? @db.VarChar(21)
+  CodigoPostal Int?
+  CodigoPostalOficina Int?
+  CodigoPostalAdmon Int?
+  Zona String? @db.VarChar(15)
+  IdentificadorMunicipalAsentamiento Int?
+}
+
+model accesos {
+  Id Int @id @default(autoincrement())
+  ApiKey String
+  Nombre String
+  Estatus Boolean
+  Creacion DateTime
+}

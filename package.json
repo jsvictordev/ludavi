@@ -1,0 +1,33 @@
+{
+  "name": "Ludavi",
+  "version": "1.0.0",
+  "description": "Api realizada para traer la informacion del sistema postal mexicano",
+  "main": "index.js",
+  "author": {
+    "name": "Victor Rigoberto Jose Santiago"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start:dev": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
+    "start": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
+    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && npx prisma generate",
+    "db:push": "npx prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.1",
+    "bash": "^0.0.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "node": "^21.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.6",
+    "prisma": "^5.8.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
