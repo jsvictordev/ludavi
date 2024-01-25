@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc -p .",
+    "build": "yarn  && tsc -p .",
     "start": "node dist/index.js",
     "start:watch": "ts-node-dev --respawn --transpile-only --exit-child src/index.ts",
     "start:dev": "ts-node-dev --respawn --transpile-only --exit-child src/index.ts",
