@@ -1,4 +1,4 @@
-import {prisma} from "../server";
+import {prisma} from "../index";
 import {Request, Response} from "express";
 import {BadRequestException} from "../errors/exeptions/bad-request.exception";
 

@@ -2,7 +2,4 @@ node_modules
 # Keep environment variables out of version control
 .env
 prisma/migrations
-
-https://github.com/jsvictordev/ludavi
-
-git remote add origin https://github.com/jsvictordev/ludavi.git
+dist

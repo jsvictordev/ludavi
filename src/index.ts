@@ -4,13 +4,26 @@ import {UnauthorizedException} from "./errors/exeptions/unauthorized.exception";
 import LocalidadesController from "./controllers/localidades.controller";
 import {NotFoundException} from "./errors/exeptions/not-found.exception";
 
+const compression = require("compression");
+const helmet = require("helmet");
+const RateLimit = require("express-rate-limit");
+
+
 let logger = require('morgan');
 export const  prisma = new PrismaClient();
 const app: Express = express();
 const port: number = 3000;
 
 async function main(): Promise<void> {
+    app.use(compression()); // Compress all routes
+    app.use(helmet());
     app.use(logger('dev'));
+    const limiter = RateLimit({
+        windowMs: 1 * 60 * 1000, // 1 minute
+        max: 20,
+    });
+// Apply rate limiter to all requests
+    app.use(limiter);
     //
     app.use(function (req, res, next) {
         res.header('Access-Control-Allow-Origin', '*')
